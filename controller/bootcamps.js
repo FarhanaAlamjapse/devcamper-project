@@ -1,27 +1,17 @@
-//desc       GET all bootcamps
-//route      GET/api/v1/bootcamps
-//access     public
-
 exports.getBootcamps = (req, res, next) => {
   res.status(200).json({
     success: true,
-    msg: "Get all bootcamps",
+    msg: "show all bootcamps",
+    Hello: req.hello,
   });
 };
-//desc       GET all bootcamps
-//route      GET/api/v1/bootcamps
-//access     public
 
 exports.getBootcamp = (req, res, next) => {
   res.status(200).json({
     success: true,
-    msg: `get single bootcamp ${req.params.id}`,
+    msg: `show single bootcamp${req.params.id}`,
   });
 };
-
-//desc       create new bootcamps
-//route      POST/api/v1/bootcamps
-//access     public
 
 exports.createBootcamp = (req, res, next) => {
   res.status(200).json({
@@ -30,10 +20,6 @@ exports.createBootcamp = (req, res, next) => {
   });
 };
 
-//desc       Update  bootcamps
-//route      PUT/api/v1/bootcamps/:id
-//access     private
-
 exports.updateBootcamp = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -41,13 +27,9 @@ exports.updateBootcamp = (req, res, next) => {
   });
 };
 
-//desc       delete  bootcamp
-//route      DELETE/api/v1/bootcamps/:id
-//access     private
-
 exports.deleteBootcamp = (req, res, next) => {
   res.status(200).json({
     success: true,
-    msg: `delete bootcamp ${req.params.id}`,
+    msg: `delete bootcamp${req.params.id}`,
   });
 };
