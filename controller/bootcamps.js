@@ -37,13 +37,6 @@ exports.createBootcamp = async (req, res, next) => {
   }
 };
 
-exports.updateBootcamp = (req, res, next) => {
-  res.status(200).json({
-    success: true,
-    msg: `update bootcamp${req.params.id}`,
-  });
-};
-
 exports.updateBootcamp = async (req, res, next) => {
   try {
     const bootcamp = await Bootcamp.findByIdAndUpdate(req.params.id, req.body, {
