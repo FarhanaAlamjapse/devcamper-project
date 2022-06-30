@@ -44,9 +44,39 @@ exports.updateBootcamp = (req, res, next) => {
   });
 };
 
-exports.deleteBootcamp = (req, res, next) => {
-  res.status(200).json({
-    success: true,
-    msg: `delete bootcamp${req.params.id}`,
-  });
+exports.updateBootcamp = async (req, res, next) => {
+  try {
+    const bootcamp = await Bootcamp.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!bootcamp) {
+      return res.status(400).json({ successs: false });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: bootcamp,
+    });
+  } catch (err) {
+    res.status(400).json({ successs: false });
+  }
+};
+
+exports.deleteBootcamp = async (req, res, next) => {
+  try {
+    const bootcamp = await Bootcamp.findByIdAndDelete(req.params.id);
+
+    if (!bootcamp) {
+      return res.status(400).json({ successs: false });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: {},
+    });
+  } catch (err) {
+    res.status(400).json({ successs: false });
+  }
 };
