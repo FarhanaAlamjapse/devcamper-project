@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
+const errorHandler = require("./middleware/error");
 // const logger = require("./middleware/logger");
 const morgan = require("morgan");
 
@@ -26,6 +27,7 @@ if (process.env.NODE_ENV === "development") {
 }
 //mouth router
 app.use("/api/v1/bootcamps", bootcamps);
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 const server = app.listen(
