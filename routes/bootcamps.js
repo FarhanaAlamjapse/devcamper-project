@@ -1,14 +1,17 @@
 const express = require("express");
+const { get } = require("mongoose");
 const {
   getBootcamps,
   getBootcamp,
   createBootcamp,
   updateBootcamp,
   deleteBootcamp,
+  getBootcampsInRadius,
 } = require("../controller/bootcamps");
 
 //initialize router
 const router = express.Router();
+router.route("/radius/:zipcode/:distance").get(getBootcampsInRadius);
 
 router.route("/").get(getBootcamps).post(createBootcamp);
 
