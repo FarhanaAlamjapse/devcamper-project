@@ -66,6 +66,7 @@ const advancedResults = (model, populate) => async (req, res, next) => {
       limit,
     };
   }
+
   res.advancedResults = {
     success: true,
     count: results.length,
@@ -74,4 +75,5 @@ const advancedResults = (model, populate) => async (req, res, next) => {
   };
   next();
 };
+
 module.exports = advancedResults;
