@@ -20,7 +20,7 @@ router
     advancedResults(Course, { path: "bootcamp", select: "name description" }),
     getCourses
   )
-  .post(addCourse);
+  .post(protect, authorize("publisher", "admin"), addCourse);
 router
   .route("/:id")
   .get(getCourse)
